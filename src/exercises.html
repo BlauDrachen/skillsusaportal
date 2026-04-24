@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Programming Exercises</title>
   <link href="css/style.css" rel="stylesheet">
+  <link href="icons/bootstrap-icons.min.css" rel="stylesheet">
 </head>
 <body class="bg-dark text-light">
 <!-- Navbar -->
@@ -19,42 +20,100 @@
 </nav>
 
 <div class="container py-5">
-  <h1 class="display-5 fw-bold mb-4">📚 Programming Exercises</h1>
+  <h1 class="display-5 fw-bold mb-4 text-center">📚 Programming Exercises</h1>
 
-  <div class="row g-4" id="exercises-grid"></div>
+  <!-- Exercise Cards -->
+  <div class="row g-4 mb-5" id="exercises-grid"></div>
+
+  <!-- Detailed Explanations -->
+  <h3 class="mb-4">📋 Problem Details</h3>
+  <div class="accordion" id="detailsAccordion"></div>
 </div>
 
 <script src="js/bootstrap.bundle.min.js"></script>
 <script>
     const exercises = [
-        { title: "FizzBuzz", difficulty: "Easy", lang: "Python / JavaScript", desc: "Print numbers with Fizz and Buzz rules" },
-        { title: "Palindrome Checker", difficulty: "Easy", lang: "Any", desc: "Check if a string is a palindrome" },
-        { title: "Two Sum", difficulty: "Medium", lang: "JavaScript", desc: "Find two numbers that add up to a target" },
-        { title: "Reverse Linked List", difficulty: "Medium", lang: "Python", desc: "Reverse a singly linked list" },
-        { title: "Binary Tree Inorder Traversal", difficulty: "Hard", lang: "Any", desc: "Implement tree traversals" }
+        {
+            id: 1,
+            title: "Sum from 1 to N",
+            difficulty: "Easy",
+            icon: "bi bi-plus-circle",
+            desc: "Calculate the sum of all integers from 1 to N",
+            fullDesc: "Write a program that asks the user for a single positive integer n (1 ≤ n ≤ 10,000) and prints the sum of all integers from 1 to n.<br><br>Example: Input 5 → Output 15"
+        },
+        {
+            id: 2,
+            title: "Power of Two Checker",
+            difficulty: "Easy",
+            icon: "bi bi-lightning",
+            desc: "Check if a number is a power of two",
+            fullDesc: "Write a program that asks the user for a positive integer and prints “Yes” if it is a power of two (including 1 = 2^0), otherwise print “No”.<br><br>Examples: 16 → Yes, 20 → No, 1 → Yes"
+        },
+        {
+            id: 3,
+            title: "Inventory Management CLI",
+            difficulty: "Medium",
+            icon: "bi bi-box-seam",
+            desc: "Build a command-line inventory management system",
+            fullDesc: "Create a menu-driven program with options to Add item, Remove item, View items, Show total value, and Exit. Each item has name, quantity, and unit price. Support updating existing items and show low-stock warnings."
+        },
+        {
+            id: 4,
+            title: "Run-Length Encoding (RLE) Compressor",
+            difficulty: "Hard",
+            icon: "bi bi-file-zip",
+            desc: "Implement basic data compression and decompression",
+            fullDesc: "Write a program that compresses a string using Run-Length Encoding (e.g., AAABBCCCC → 3A2B4C) and then decompresses it back to the original. Show compression ratio and verify correctness."
+        }
     ];
 
+    // Render Cards
     const grid = document.getElementById('exercises-grid');
-
     exercises.forEach(ex => {
         const col = document.createElement('div');
         col.className = "col-md-6 col-lg-4";
         col.innerHTML = `
         <div class="card bg-secondary text-light h-100">
           <div class="card-body">
-            <div class="d-flex justify-content-between align-items-start mb-3">
-              <h5>${ex.title}</h5>
+            <div class="d-flex justify-content-between align-items-start">
+              <i class="${ex.icon} display-4 text-success"></i>
               <span class="badge bg-${ex.difficulty === 'Easy' ? 'success' : ex.difficulty === 'Medium' ? 'warning' : 'danger'}">${ex.difficulty}</span>
             </div>
-            <p class="text-info small mb-2">${ex.lang}</p>
+            <h5 class="card-title mt-3">${ex.title}</h5>
             <p class="card-text">${ex.desc}</p>
           </div>
           <div class="card-footer bg-transparent border-0">
-            <button class="btn btn-outline-light btn-sm">Start Exercise</button>
+            <button class="btn btn-outline-light btn-sm w-100"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#detail-${ex.id}">
+              Show Details
+            </button>
           </div>
         </div>
       `;
         grid.appendChild(col);
+    });
+
+    // Render Detailed Accordion
+    const accordion = document.getElementById('detailsAccordion');
+    exercises.forEach(ex => {
+        const item = document.createElement('div');
+        item.className = "accordion-item bg-secondary border-0 mb-2";
+        item.innerHTML = `
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed bg-secondary text-light" type="button"
+                  data-bs-toggle="collapse" data-bs-target="#detail-${ex.id}">
+            ${ex.title}
+            <span class="badge bg-${ex.difficulty === 'Easy' ? 'success' : ex.difficulty === 'Medium' ? 'warning' : 'danger'} ms-2">${ex.difficulty}</span>
+          </button>
+        </h2>
+        <div id="detail-${ex.id}" class="accordion-collapse collapse" data-bs-parent="#detailsAccordion">
+          <div class="accordion-body">
+            ${ex.fullDesc}
+          </div>
+        </div>
+      `;
+        accordion.appendChild(item);
     });
 </script>
 </body>
