@@ -35,35 +35,68 @@
     const exercises = [
         {
             id: 1,
-            title: "Sum from 1 to N",
+            title: "Problem 1: Sum from 1 to N",
             difficulty: "Easy",
             icon: "bi bi-plus-circle",
-            desc: "Calculate the sum of all integers from 1 to N",
-            fullDesc: "Write a program that asks the user for a single positive integer n (1 ≤ n ≤ 10,000) and prints the sum of all integers from 1 to n.<br><br>Example: Input 5 → Output 15"
+            desc: "Write a program that asks the user for a single positive integer n (1 ≤ n ≤ 10,000).",
+            fullDesc: `Write a program that asks the user for a single positive integer n (1 ≤ n ≤ 10,000).<br>
+Your program should calculate and print the sum of all integers from 1 to n.<br><br>
+Example:<br>
+Input: 5<br>
+Output: 15`
         },
         {
             id: 2,
-            title: "Power of Two Checker",
+            title: "Problem 2: Power of Two Checker",
             difficulty: "Easy",
             icon: "bi bi-lightning",
-            desc: "Check if a number is a power of two",
-            fullDesc: "Write a program that asks the user for a positive integer and prints “Yes” if it is a power of two (including 1 = 2^0), otherwise print “No”.<br><br>Examples: 16 → Yes, 20 → No, 1 → Yes"
+            desc: "Write a program that asks the user for a positive integer.",
+            fullDesc: `Write a program that asks the user for a positive integer.<br>
+Print “Yes” if the number is a power of two (including 1 = 2^0), otherwise print “No”.<br><br>
+Examples:<br>
+Input: 16<br>
+Output: Yes<br>
+Input: 20<br>
+Output: No<br>
+Input: 1<br>
+Output: Yes`
         },
         {
             id: 3,
-            title: "Inventory Management CLI",
+            title: "Problem 3: Inventory Management CLI",
             difficulty: "Medium",
             icon: "bi bi-box-seam",
-            desc: "Build a command-line inventory management system",
-            fullDesc: "Create a menu-driven program with options to Add item, Remove item, View items, Show total value, and Exit. Each item has name, quantity, and unit price. Support updating existing items and show low-stock warnings."
+            desc: "Inventory Management practices data structures (lists or dictionaries/maps), menus, and state management.",
+            fullDesc: `Inventory Management practices data structures (lists or dictionaries/maps), menus, and state management.<br><br>
+Problem: Inventory Management CLI<br>
+Write a program that simulates a simple command-line inventory management system.<br>
+The program should repeatedly display a menu with these options:<br>
+Add an item<br>
+Remove an item (reduce quantity)<br>
+View all items<br>
+Show total inventory value<br>
+Exit<br><br>
+Each item must have:<br>
+Name (string)<br>
+Quantity (positive integer)<br>
+Unit price (positive number, can include decimals)`
         },
         {
             id: 4,
-            title: "Run-Length Encoding (RLE) Compressor",
+            title: "Problem 4: Data Compression Simulator",
             difficulty: "Hard",
             icon: "bi bi-file-zip",
-            desc: "Implement basic data compression and decompression",
-            fullDesc: "Write a program that compresses a string using Run-Length Encoding (e.g., AAABBCCCC → 3A2B4C) and then decompresses it back to the original. Show compression ratio and verify correctness."
+            desc: "Write a program that implements a basic Run-Length Encoding (RLE) compression algorithm.",
+            fullDesc: `Write a program that implements a basic Run-Length Encoding (RLE) compression algorithm and its decompression.<br><br>
+The program should:<br>
+Ask the user for a string to compress (or read from input)<br>
+Apply Run-Length Encoding: replace sequences of identical characters with the count followed by the character (e.g., "AAABBCCCC" becomes "3A2B4C")<br>
+Display the compressed string and the compression ratio (original length vs. compressed length)<br>
+Then decompress the compressed string back to the original and display it to verify correctness.<br><br>
+Example:<br>
+Input string: AAABBCCCDDDD<br>
+Compressed: 3A2B3C4D<br>
+Decompressed: AAABBCCCDDDD (should match original)`
         }
     ];
 
