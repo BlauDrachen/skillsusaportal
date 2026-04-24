@@ -1,0 +1,11 @@
+services:
+  portal-dev:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.dev
+    container_name: skillsusail_compprog_portal_dev
+    ports:
+      - "8080:80"
+    volumes:
+      - ..:/app
+      - /app/node_modules

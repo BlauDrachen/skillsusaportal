@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programming Exercises</title>
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body class="bg-dark text-light">
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-black sticky-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="index.html">🏠 My Portal</a>
+    <div class="navbar-nav ms-auto">
+      <a class="nav-link" href="index.html">Services</a>
+      <a class="nav-link active" href="exercises.html">Programming Exercises</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container py-5">
+  <h1 class="display-5 fw-bold mb-4">📚 Programming Exercises</h1>
+
+  <div class="row g-4" id="exercises-grid"></div>
+</div>
+
+<script src="js/bootstrap.bundle.min.js"></script>
+<script>
+    const exercises = [
+        { title: "FizzBuzz", difficulty: "Easy", lang: "Python / JavaScript", desc: "Print numbers with Fizz and Buzz rules" },
+        { title: "Palindrome Checker", difficulty: "Easy", lang: "Any", desc: "Check if a string is a palindrome" },
+        { title: "Two Sum", difficulty: "Medium", lang: "JavaScript", desc: "Find two numbers that add up to a target" },
+        { title: "Reverse Linked List", difficulty: "Medium", lang: "Python", desc: "Reverse a singly linked list" },
+        { title: "Binary Tree Inorder Traversal", difficulty: "Hard", lang: "Any", desc: "Implement tree traversals" }
+    ];
+
+    const grid = document.getElementById('exercises-grid');
+
+    exercises.forEach(ex => {
+        const col = document.createElement('div');
+        col.className = "col-md-6 col-lg-4";
+        col.innerHTML = `
+        <div class="card bg-secondary text-light h-100">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-start mb-3">
+              <h5>${ex.title}</h5>
+              <span class="badge bg-${ex.difficulty === 'Easy' ? 'success' : ex.difficulty === 'Medium' ? 'warning' : 'danger'}">${ex.difficulty}</span>
+            </div>
+            <p class="text-info small mb-2">${ex.lang}</p>
+            <p class="card-text">${ex.desc}</p>
+          </div>
+          <div class="card-footer bg-transparent border-0">
+            <button class="btn btn-outline-light btn-sm">Start Exercise</button>
+          </div>
+        </div>
+      `;
+        grid.appendChild(col);
+    });
+</script>
+</body>
+</html>

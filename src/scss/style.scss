@@ -1,0 +1,29 @@
+// Bootstrap 5 SCSS - fully local
+@import "bootstrap/scss/bootstrap";
+
+// Your custom styles (after Bootstrap)
+body {
+  background: #0d1117;
+}
+
+.card {
+  transition: all 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 255, 100, 0.15) !important;
+}
+
+.navbar {
+  border-bottom: 1px solid #222;
+}
+
+.btn-success {
+  background-color: #00c853;
+  border-color: #00c853;
+}
+
+.btn-success:hover {
+  background-color: #00b140;
+}

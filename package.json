@@ -1,0 +1,12 @@
+{
+  "name": "skillsusail-compprog-portal",
+  "version": "1.0.0",
+  "scripts": {
+    "build-css": "sass src/scss/style.scss src/css/style.css --no-source-map --style=compressed --load-path=node_modules",
+    "watch": "sass --watch src/scss/style.scss:src/css/style.css --poll --load-path=node_modules"
+  },
+  "devDependencies": {
+    "bootstrap": "^5.3.8",
+    "sass": "^1.77.0"
+  }
+}

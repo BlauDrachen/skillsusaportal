@@ -1,0 +1,23 @@
+FROM node:20-alpine
+
+# Install nginx
+RUN apk add --no-cache nginx
+
+WORKDIR /app
+
+# Install dependencies
+COPY package.json ./
+RUN npm install
+
+# Copy everything (this helps with initial file structure)
+COPY . .
+
+# copy custom nginx config
+COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
+
+# Expose port
+EXPOSE 80
+
+# Start sass watcher + nginx
+# We also create the css directory if it doesn't exist
+CMD ["sh", "-c", "mkdir -p src/css && npm run watch & nginx -g 'daemon off;'"]
